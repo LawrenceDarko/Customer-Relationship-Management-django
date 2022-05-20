@@ -4,7 +4,6 @@ from sre_constants import CATEGORY
 from unicodedata import category, name
 from django.db import models
 
-from accounts.views import customers
 
 # Create your models here.
 
