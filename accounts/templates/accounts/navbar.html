@@ -1,3 +1,25 @@
+<style>
+  .cont{
+    height: 40px;
+    /* border: 1px solid green; */
+  }
+  .ntitle{
+    color: white;
+    padding-right: 10px;
+    margin-top: 5px;
+    /* border: 1px solid red; */
+  }
+  .links{
+    text-decoration: none;
+    color: #fff;
+    padding-left: 10px;
+  }
+  .links:hover{
+    color: rgb(250, 166, 160);
+    text-decoration: none;
+  }
+</style>
+
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'accounts:dashboard' %}">Dashboard</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,8 +35,10 @@
           <a class="nav-link" href="#">Customers</a>
         </li>
       </ul>
+      <div class="cont"><p class="ntitle">Hello, {{request.user}}</p></div>
       <form class="form-inline my-2 my-md-0">
         <input class="form-control" type="text" placeholder="Search">
       </form>
+      <a class="links" href="{% url 'accounts:logout_user' %}">Logout</a>
     </div>
   </nav>

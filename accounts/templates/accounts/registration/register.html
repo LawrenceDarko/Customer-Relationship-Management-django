@@ -1,0 +1,65 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blueBg">
+        <div class="box signin">
+          <h2>Already Have an Account?</h2>
+          <a href="{% url 'accounts:login_user' %}"><button class="signinBtn">Sign In</button></a>
+        </div>
+        <div class="box signup">
+          <h2>Don't Have an Account?</h2>
+          <a href="{% url 'accounts:register_user' %}"><button class="signupBtn">Sign Up</button></a>
+        </div>
+      </div>
+      <div class="formBx">
+        <div class="form signinForm">
+          <!-- <form> -->
+            <h3>Sign In</h3>
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <input type="submit" value="login" />
+            <a href="#" class="forgot">Forgot Password?</a>
+          <!-- </form> -->
+        </div>
+
+        <div class="form signupForm">
+          <form action="{% url 'accounts:register_user' %}" method="post">
+              {% csrf_token %}
+            <h3>Sign Up</h3>
+            {{form.username}}
+            {{form.email}}
+            {{form.password1}}
+            {{form.password2}}
+            <input type="submit" value="Register" />
+          </form>
+          {{form.errors}}
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- <script>
+        // To set placeholder in the templates
+        var form = document.getElementsByTagName('input')
+        form[1].placeholder='Username';
+        form[2].placeholder='Email';
+        form[3].placeholder='Password';
+        form[4].placeholder='Confirm fPassword';
+
+        for (var field in form){
+            form[field].className += 'form-control'
+        }
+    </script> -->
+  </body>
+</html>
+
